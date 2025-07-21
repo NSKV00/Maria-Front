@@ -4,6 +4,7 @@ import { Link } from "react-router-dom"
 import style  from "./style.module.css"
 
 
+
 export const Login = ()=>{
     const navigate = useNavigate()
 
