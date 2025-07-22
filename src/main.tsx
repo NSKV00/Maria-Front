@@ -4,7 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import './index.css'
 import App from './App.tsx'
-// import { MainContext, MainContextProvider } from './context/MainContext.tsx';
+import { MainContext, MainContextProvider } from './context/MainContext.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -20,9 +20,9 @@ createRoot(document.getElementById('root')!).render(
           limit={1}
           />
     <BrowserRouter>
-    {/* <MainContextProvider>   */}
+    <MainContextProvider>
       <App />
-    {/* </MainContextProvider> */}
+    </MainContextProvider>
     </BrowserRouter>
   </StrictMode>,
 )
