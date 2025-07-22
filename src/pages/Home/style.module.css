@@ -1,0 +1,22 @@
+
+.cardapio{
+    padding: 12px;
+    font-size: 1.6rem;
+    color: #7F675B ;
+}
+.sabor{
+    display: flex;
+    
+    gap: 16px;
+    padding: 12px;
+    font-size: 1.2rem;
+    color: #52301f;
+}
+.sabores{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 12px;
+    font-size: 1.2rem;
+    color: #52301f;
+}
