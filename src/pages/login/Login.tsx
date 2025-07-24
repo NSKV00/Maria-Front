@@ -84,16 +84,3 @@ export const Login = ()=>{
         </main>
     </>
 }
-
-
-{/* <main className={style.main}>
-        <form className={style.form} onSubmit={handleSubmit(fazerLogin)}>
-            <Input errorMsg={errors.email&&errors.email.message} 
-            label="E-mail" type="text" placeholder="escreva seu e-mail" register={register("email")}/>
-           
-            <Input errorMsg={errors.password&&errors.password.message} 
-                label="Senha" type="password" placeholder="****" register={register("password")}
-            />
-            <button type="submit">Login</button>
-        </form>
-    </main> */}
