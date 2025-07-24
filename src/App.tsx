@@ -1,4 +1,4 @@
-import { MainRoutes } from "./pages/routes/Routes"
+import { MainRoutes } from "./routes/Routes"
 
 
 
