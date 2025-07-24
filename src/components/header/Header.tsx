@@ -23,11 +23,16 @@ export const Header:React.FC=()=>{
         <div id="overlay" className={style.overlay} onClick={MenuLateral}></div>
 
         <div id="Menu" className={style.Menu}>
-            <a href="#"><i data-lucide="shopping-bag"></i> Vendas</a>
-            <a href="#"><i data-lucide="package"></i> Produtos</a>
-            <a href="#"><i data-lucide="credit-card"></i> Despesas</a>
+            <Link to="/vendas" ><span data-lucide="shopping-bag"></span>Vendas</Link>
+            <Link to="/relatorios"><span data-lucide="bar-chart"></span>Relatórios</Link>
+            <Link to="/configs"><span data-lucide="settings"></span>Configurações</Link>
+            {/* <Link to="/vendas" data-lucide="shopping-bag">Vendas</Link>
+            <Link to="/vendas" data-lucide="shopping-bag">Vendas</Link> */}
+            {/* {/*
+            <a href="#"><i data-lucide="package"></i> Produtos</a> */}
+            {/* <a href="/vendas"><i data-lucide="credit-card"></i> Vendas</a>
             <a href="#"><i data-lucide="bar-chart"></i> Relatórios</a>
-            <a href="#"><i data-lucide="settings"></i> Configurações</a>
+            <a href="#"><i data-lucide="settings"></i> Configurações</a> */}
         </div>
 
         <header className={style.header}>
