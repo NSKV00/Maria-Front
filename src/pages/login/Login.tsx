@@ -60,19 +60,23 @@ export const Login = ()=>{
             <div className={style.login}>
                 <h2>Doces CallMaria</h2>
                 <form className={style.form} onSubmit={handleSubmit(fazerLogin)}>
-                    <fieldset>
-                        <label htmlFor="name">Nome de Usuário</label>
+
+                    <Input errorMsg={errors.name && errors.name.message}
+                    label="Name" type="text" placeholder="Digite seu Usuário" register={register("name")} />
+
+                    <Input errorMsg={errors.password && errors.password.message}
+                    label="password" type="password" placeholder="Digite sua senha" register={register("password")} />
+
+                        {/* <label htmlFor="name">Nome de Usuário</label>
                         <input  id="name" type="text" placeholder="Digite seu Usuário"//  onChange={(e)=>setName(e.target.value)}
                         />
-                    </fieldset>
-                    <fieldset>
+
                         <label htmlFor="password">Senha</label>
                         <input id="password" type="password" placeholder="Digite sua senha"//  onChange={(e)=>setPass(e.target.value)}
-                        />
-                    </fieldset>
+                        /> */}
 
-                    <Input label="Senha" placeholder="" register={register("password")} 
-                    type="password" errorMsg={errors.password && errors.password.message}/>
+                    {/* <Input label="Senha" placeholder="" register={register("password")} 
+                    type="password" errorMsg={errors.password && errors.password.message}/> */}
 
                     <button type="submit">Logar</button>
                 </form>
@@ -80,16 +84,3 @@ export const Login = ()=>{
         </main>
     </>
 }
-
-
-{/* <main className={style.main}>
-        <form className={style.form} onSubmit={handleSubmit(fazerLogin)}>
-            <Input errorMsg={errors.email&&errors.email.message} 
-            label="E-mail" type="text" placeholder="escreva seu e-mail" register={register("email")}/>
-           
-            <Input errorMsg={errors.password&&errors.password.message} 
-                label="Senha" type="password" placeholder="****" register={register("password")}
-            />
-            <button type="submit">Login</button>
-        </form>
-    </main> */}
