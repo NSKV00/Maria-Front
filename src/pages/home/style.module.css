@@ -55,10 +55,11 @@
     font-size: 16px;
     padding: 5px 0;
     outline: none;  
-    width: 20%;
+    max-width: 80%;
+    width: 100%;
     padding-left: 10px;
     padding-top: 15px;
-    margin: 0px;    
+    margin: 0px;
 }
 
 .textoNome {
@@ -173,4 +174,14 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.botaoCriar {
+  background-color: #bea98b;
+  color: black;
+}
+
+.divBotaoCriar {
+    display: flex;
+    gap: 30px;
 }

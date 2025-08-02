@@ -66,6 +66,20 @@ const deletarProduto = async (id:number) => {
 
 }
 
+const buscar = async (nome:string) => {
+    try {
+        const res = await apiController.get("produto",{
+            params: {
+                name:nome
+            }
+        })
+
+        return res.data
+    } catch (error) {
+        console.error("nao foi encontrado nada:", error)
+    }
+}
+
 const criarVenda = async (venda:venda) => {
     try {
         const res = await apiController.post("venda", {
@@ -136,18 +150,22 @@ const atualizar = async (produto: Partial<creteProduto>, id:number) => {
         
         <main className={style.main}>
         <div className={style.divPesquisa}>
-            <div className={style.inputWrapper}>
-  <input
-    className={style.input}
-    type="text"
-    placeholder="Sabor que deseja..."
-  />
-  <button className={style.inputButton}>Buscar</button>
+        <div className={style.inputWrapper}>
+        <input className={style.input} type="text" placeholder="Sabor que deseja..." onChange={async (e) => { 
+            const valor = e.target.value
+            if (valor.trim() === "") {
+            pegarTodosUser()
+            return
+        }
+            const resultado = await buscar(valor)
+            if (resultado) { setProduto(resultado)}}
+        }
+/>
 </div>
-            <div>
-                <button onClick={() => openModal2()}>Adicionar Cupcake</button>
-                <button onClick={() => openModal4()}>Criar Venda</button>
-                <button onClick={() => setMostrarInativos((prev) => !prev)}>
+            <div className={style.divBotaoCriar}>
+                <button className={style.botaoCriar} onClick={() => openModal2()}>Adicionar Cupcake</button>
+                <button className={style.botaoCriar} onClick={() => openModal4()}>Criar Venda</button>
+                <button className={style.botaoCriar} onClick={() => setMostrarInativos((prev) => !prev)}>
   {mostrarInativos ? "Ver Ativos" : "Ver Inativos"}</button>
             </div>
         </div>
