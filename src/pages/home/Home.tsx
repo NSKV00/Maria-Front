@@ -175,8 +175,9 @@ const atualizar = async (produto: Partial<creteProduto>, id:number) => {
             <article onClick={() => openModal(item)} key={index.id} className={style.article}>
                 <img className={style.img} src={item.url} alt={`Imagem do produto ${item.nome}`} />
                 <div className={style.divA}>
-                    <h1 className={style.textoNome}>{item.nome}</h1>
-                    <p>{item.descricao}</p>
+                    <h1 className={style.textoNome}> Sabor: {item.nome}</h1>
+                    <p>Descrição: {item.descricao}</p>
+                    <p>Preço: R${item.preco/100}</p>
                 </div>
             </article>
         ))}
@@ -187,7 +188,7 @@ const atualizar = async (produto: Partial<creteProduto>, id:number) => {
     <div className={style.modalBackdrop} onClick={() => setModalOpen3(false)}>
     <div className={style.modalContent} onClick={e => e.stopPropagation()}>
         <p className={style.modalLinha}>Quantidade: <input className={style.inputBonito} type="text" onChange={(e) => setVendaSelecionado({...vendaSelecionado, quantidade: Number(e.target.value)})}/></p>
-        <p className={style.modalLinha}>Lucro: <input className={style.inputBonito}  type="text"  onChange={(e) => setVendaSelecionado({...vendaSelecionado, lucro: Number(e.target.value)})}/></p>
+        <p className={style.modalLinha}>Lucro unitario: <input className={style.inputBonito}  type="text"  onChange={(e) => setVendaSelecionado({...vendaSelecionado, lucro: Number(e.target.value)})}/></p>
         <p className={style.modalLinha}>Sabor: <input className={style.inputBonito}  type="text"  onChange={(e) => setVendaSelecionado({...vendaSelecionado, sabor: e.target.value})}/></p>
         <div className={style.divBotao}></div>
         <div className={style.divBotao}>

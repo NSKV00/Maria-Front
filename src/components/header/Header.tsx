@@ -24,8 +24,7 @@ export const Header:React.FC=()=>{
 
         <div id="Menu" className={style.Menu}>
             <Link to="/vendas" ><span data-lucide="shopping-bag"></span>Vendas</Link>
-            <Link to="/relatorios"><span data-lucide="bar-chart"></span>Relatórios</Link>
-            <Link to="/configs"><span data-lucide="settings"></span>Configurações</Link>
+            <Link to="/relatorio"><span data-lucide="bar-chart"></span>Relatórios</Link>
             {/* <Link to="/vendas" data-lucide="shopping-bag">Vendas</Link>
             <Link to="/vendas" data-lucide="shopping-bag">Vendas</Link> */}
             {/* {/*

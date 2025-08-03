@@ -54,7 +54,6 @@ export const Login = ()=>{
     }
 
     return<>
-        <Header/>
 
         <main className={style.main}>
             <div className={style.login}>

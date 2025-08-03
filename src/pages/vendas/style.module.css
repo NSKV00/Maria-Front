@@ -1,0 +1,227 @@
+:root {
+  --cor-fundo: #F5F3EF;
+  --cor-destaque: #D9BBA0;
+  --cor-contraste: #A3B18A;
+  --cor-texto: #7F675B;
+  --cor-card: #FFFFFF;
+}
+
+body {
+  background-color: var(--cor-fundo);
+  font-family: 'Segoe UI', sans-serif;
+  color: var(--cor-texto);
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 2rem;
+  background-color: var(--cor-fundo);
+}
+
+.divVenda {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 640px) {
+  .divVenda {
+    grid-template-columns: 1fr;
+  }
+}
+
+.divVenda > div {
+  background-color: var(--cor-card);
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(127, 103, 91, 0.15);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease;
+}
+
+.divVenda > div:hover {
+  transform: translateY(-4px);
+}
+
+h1 {
+  font-size: 1.1rem;
+  color: var(--cor-texto);
+}
+
+.divFinalVenda {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.divFinalVenda p {
+  margin: 0;
+  color: var(--cor-texto);
+}
+
+button {
+  margin-top: 1rem;
+  background-color: var(--cor-destaque);
+  border: none;
+  color: var(--cor-texto);
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--cor-contraste);
+  color: #fff;
+}
+
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+  border: solid 4px var(--marrom-claro);
+  color: #7F675B;
+  background-color: #F5F3EF;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.divVendInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.divBotaoVenda {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalLinha {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.inputBonito {
+  max-width: 100%;
+  width: 60%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1.5px solid #c9bab3;
+  background: #f9f7ef;
+  color: #7F675B;
+  font-size: 1rem;
+  outline: none;
+  box-sizing: border-box;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.inputBonito:focus {
+  border: 1.5px solid var(--marrom-claro);
+  background: #fff8f4;
+  box-shadow: 0 0 0 3px #e7d7cb55;
+}
+
+.vendaDelet {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.vendaBotoesD {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+.antesDepois {
+    display: flex;
+    justify-content: center;
+    gap: 4%;
+}
+
+.inputSelectEstilizado {
+  background-color: #f5ede3;
+  border: 1px solid #d2c2b2;
+  color: #6d5832;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+  margin-right: 8px;
+}
+
+.inputSelectEstilizado:focus {
+  border: 2px solid #a78c6d;
+  background-color: #fff8f0;
+}
+
+.selectEstilizado {
+  background-color: #f5ede3;
+  border: 1px solid #d2c2b2;
+  color: #6d5832;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+  margin-right: 8px;
+  appearance: none;
+  cursor: pointer;
+  min-width: 120px;
+  box-shadow: 0 1px 3px #ece2d2;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='6d5832' height='16' viewBox='0 0 24 24' width='16' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 18px 18px;
+}
+
+.selectEstilizado:focus {
+  border: 2px solid #a78c6d;
+  background-color: #fff8f0;
+}
+
+.divBusca {
+    max-width: 100%;
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+
