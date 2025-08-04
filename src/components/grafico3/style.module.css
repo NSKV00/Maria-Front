@@ -4,7 +4,7 @@
 
 .container {
   width: 60%;
-  height: 420px;
+  height: 520px;
   margin: 32px auto;
   padding: 24px 32px;
   background-color: #fff;
@@ -35,4 +35,3 @@
     font-size: 1.1rem;
   }
 }
-

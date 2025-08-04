@@ -4,13 +4,13 @@ import { Header } from "../../components/header/Header"
 import { apiController } from "../../controller/api.controller"
 import { Footer } from "../../components/footer/Footer"
 import style from "./style.module.css"
-import type { creteProduto } from "../../schemas/produto.schemas"
+import type { creteProduto, returnProduto } from "../../schemas/produto.schemas"
 import { toast } from "react-toastify"
 import type { venda } from "../../schemas/venda.schemas"
 
 export const Home = ()=>{
     const navigate = useNavigate()
-    const [produto,setProduto] = useState<creteProduto[]>([])
+    const [produto,setProduto] = useState<returnProduto[]>([])
     const [modalOpen, setModalOpen] = useState(false)
     const [modalOpen2, setModalOpen2] = useState(false)
     const [modalOpen3, setModalOpen3] = useState(false)
@@ -171,8 +171,8 @@ const atualizar = async (produto: Partial<creteProduto>, id:number) => {
         </div>
 
             <div className={style.divB}>
-        {produto.filter(item => item.ativo === !mostrarInativos).map((item, index) => (
-            <article onClick={() => openModal(item)} key={index.id} className={style.article}>
+        {produto.filter(item => item.ativo === !mostrarInativos).map((item) => (
+            <article onClick={() => openModal(item)} key={item.id} className={style.article}>
                 <img className={style.img} src={item.url} alt={`Imagem do produto ${item.nome}`} />
                 <div className={style.divA}>
                     <h1 className={style.textoNome}> Sabor: {item.nome}</h1>
@@ -225,6 +225,7 @@ const atualizar = async (produto: Partial<creteProduto>, id:number) => {
 
         if(!deletado){
             toast.error("Erro ao deletar produto")
+            return
         }
 
         toast.success("Produto Deletado com sucesso") 
@@ -246,7 +247,7 @@ const atualizar = async (produto: Partial<creteProduto>, id:number) => {
     <div className={style.modalContent} onClick={e => e.stopPropagation()}>
         <p className={style.modalLinha}>Sabor: <input className={style.inputBonito} type="text" onChange={(e) => setProdutoSelecionado({...produtoSelecionado, nome: e.target.value})}/></p>
         <p className={style.modalLinha}>Descrição: <input className={style.inputBonito}  type="text"  onChange={(e) => setProdutoSelecionado({...produtoSelecionado, descricao: e.target.value})}/></p>
-        <p className={style.modalLinha}>preco: <input className={style.inputBonito}  type="text"  onChange={(e) => setProdutoSelecionado({...produtoSelecionado, preco: Number(e.target.value)})}/></p>
+        <p className={style.modalLinha}>preco: <input className={style.inputBonito}  type="text"  onChange={(e) => setProdutoSelecionado({...produtoSelecionado, preco: Number(e.target.value) * 100})}/></p>
         <p className={style.modalLinha}>Url da imagem: <input className={style.inputBonito}  type="text"  onChange={(e) => setProdutoSelecionado({...produtoSelecionado, url: e.target.value})}/></p>    
         <p className={style.modalLinha}>Ativo:   <select className={style.inputBonito}  onChange={(e) => setProdutoSelecionado({...produtoSelecionado, ativo: e.target.value === "true"})}> <option value="true">Ativo</option> <option value="false">Inativo</option> </select></p>    
         <div className={style.divBotao}>
@@ -254,7 +255,7 @@ const atualizar = async (produto: Partial<creteProduto>, id:number) => {
         <button
   className={`${style.botaoModal} ${style.sucesso}`}
   onClick={async () => {
-    if (!produtoSelecionado.nome || !produtoSelecionado.descricao || !produtoSelecionado.preco || !produtoSelecionado.url) {
+    if (!produtoSelecionado.nome || !produtoSelecionado.descricao || !produtoSelecionado.preco ) {
       toast.error("Preencha todos os campos obrigatórios")
       return
     }
@@ -294,12 +295,6 @@ const atualizar = async (produto: Partial<creteProduto>, id:number) => {
         } , 3600)
     } else {toast.error("Erro ao atualizar produto")}}}>
     Atualizar </button>
-    <button className={`${style.botaoModal} ${style.erro}`} onClick={() => {
-        setModalOpen(false)
-        setTimeout(() => {
-            openModal3()
-        }, 200);
-    }}>Deletar</button>
     </div>
     </div>
   </div>

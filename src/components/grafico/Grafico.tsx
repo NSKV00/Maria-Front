@@ -43,12 +43,13 @@ export function GraficoVendasAnual() {
     return agrupado;
   }
 
-  const pegarTodasVendas = async (paramN?: string, paramD?: string, offset2?: number) => {
+  const pegarTodasVendas = async (paramN?: string, paramD?: string, offset2?: number,limite?:number) => {
     const { data } = await apiController.get("venda", {
       params: {
         nomeDoProduto: paramN,
         data: paramD,
         offset: offset2,
+        limit: limite
       },
     });
 
@@ -62,12 +63,12 @@ export function GraficoVendasAnual() {
   };
 
   useEffect(() => {
-    pegarTodasVendas(undefined, undefined, 0);
+    pegarTodasVendas(undefined, undefined, 0,1000000);
   }, []);
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.titulo}>Gráfico Anual de Produção e Lucro</h2>
+      <h2 className={styles.titulo}>Produção</h2>
       <ResponsiveContainer width="100%" height="100%">
         <BarChart
           data={dadosGrafico}

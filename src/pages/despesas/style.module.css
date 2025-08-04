@@ -1,75 +1,33 @@
-:root {
-  --cor-fundo: #F5F3EF;
-  --cor-destaque: #D9BBA0;
-  --cor-contraste: #A3B18A;
-  --cor-texto: #7F675B;
-  --cor-card: #FFFFFF;
-}
-
-body {
-  background-color: var(--cor-fundo);
-  font-family: 'Segoe UI', sans-serif;
-  color: var(--cor-texto);
-  margin: 0;
-  padding: 0;
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 2rem;
-  background-color: var(--cor-fundo);
-}
-
-.divVenda {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-}
-
-@media (max-width: 640px) {
-  .divVenda {
-    grid-template-columns: 1fr;
-  }
-}
-
-.divVenda > div {
+.despesaitem {
   background-color: var(--cor-card);
   border-radius: 1rem;
   box-shadow: 0 2px 8px rgba(127, 103, 91, 0.15);
   padding: 1.5rem;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
   transition: transform 0.2s ease;
+  cursor: pointer;
 }
 
-.divVenda > div:hover {
+.despesaitem:hover {
   transform: translateY(-4px);
 }
 
-h1 {
+.despesadivA {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.despesatextoNome {
   font-size: 1.1rem;
   color: var(--cor-texto);
-}
-
-.divFinalVenda {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  font-size: 0.95rem;
-}
-
-.divFinalVenda p {
   margin: 0;
-  color: var(--cor-texto);
 }
 
 button {
-  margin-top: 1rem;
+  margin-top: 0.3rem;
   background-color: var(--cor-destaque);
   border: none;
   color: var(--cor-texto);
@@ -114,24 +72,12 @@ button:hover {
   gap: 20px;
 }
 
-.divVendInfo {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.divBotaoVenda {
+.divBotaoDespesa {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 50px;
   justify-content: center;
   align-items: center;
-}
-
-.modalLinha {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 
 .inputBonito {
@@ -154,24 +100,28 @@ button:hover {
   box-shadow: 0 0 0 3px #e7d7cb55;
 }
 
-.vendaDelet {
+.modalLinha {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.divBotaoGap {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.divPGap {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+    gap: 20px;
 }
 
-.vendaBotoesD {
-  display: flex;
-  flex-direction: row;
-  gap: 30px;
-}
-
-.antesDepois {
+.despesaDelet {
     display: flex;
-    justify-content: center;
-    gap: 4%;
+    flex-direction: column;
+    align-items: center;
 }
 
 .inputSelectEstilizado {
@@ -217,18 +167,14 @@ button:hover {
 }
 
 .divBusca {
-    max-width: 100%;
-    width: 40%;
     display: flex;
-    flex-direction: row;
-    gap: 30px;
+    align-items: center;
+    justify-content: center;
 }
 
-.divBotoesGap {
+.divBotaoGap2 {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 30px;
+    gap: 20px;
 }
-
-
